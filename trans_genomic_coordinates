@@ -1,0 +1,11 @@
+conda install crossmap -y
+# run the tool
+CrossMap.py
+# Get the chain file that maps from hg19 to hg38.
+wget http://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/hg19ToHg38.over.chain.gz
+
+# Get a test data file that will be remapped.
+wget http://data.biostarhandbook.com/data/ucsc/test.hg19.bed
+
+# Run the remapping process.
+CrossMap.py bed hg19ToHg38.over.chain.gz test.hg19.bed  test.hg38.bed
